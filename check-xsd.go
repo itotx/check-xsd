@@ -40,7 +40,7 @@ func checkFile(fileName string) {
 		if err == io.EOF {
 			break
 		}
-		if n.Attr[0].Value[0:1] != strings.ToUpper(n.Attr[0].Value[0:1]) {
+		if len(n.Attr) > 0 && len(n.Attr[0].Value) > 1 && n.Attr[0].Value[0:1] != strings.ToUpper(n.Attr[0].Value[0:1]) {
 			fmt.Println("Ошибка у аттрибута name типа:", n.Attr[0].Value, "в файле", fileName)
 		}
 		if err != nil {
